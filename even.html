@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even or Odd Number Finder</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        margin: 0;
+      }
+      .container {
+        background: rgb(235, 122, 122);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+      h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+      input[type="text"] {
+        padding: 10px;
+        width: calc(100% - 22px);
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button {
+        padding: 12px 20px;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+      #output {
+        display: block;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #555;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Even or Odd Number Finder</h1>
+      <input type="text" id="startNumber" placeholder="Enter start number" />
+      <input type="text" id="endNumber" placeholder="Enter end number" />
+      <button onclick="listEvenOddNumbers()">Show Even and Odd Numbers</button>
+      <div id="output"></div>
+    </div>
+    <script>
+      // Function to list even and odd numbers within a given range
+      function listEvenOddNumbers() {
+        const startNumber = parseInt(
+          document.getElementById("startNumber").value
+        );
+        const endNumber = parseInt(document.getElementById("endNumber").value);
+        let outputText = "";
+
+        // Loop through the numbers
+        for (let number = startNumber; number <= endNumber; number++) {
+          outputText +=
+            number + (number % 2 === 0 ? " is even<br>" : " is odd<br>");
+        }
+
+        // Display the result
+        const output = document.getElementById("output");
+        output.innerHTML = outputText;
+      }
+    </script>
+  </body>
+</html>
